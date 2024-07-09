@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcvgynl7x1cy1"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_exlrd"]
+
+[node name="Test MK-16 FA Shotgun" type="MeshInstance3D"]
+transform = Transform3D(0.75, 0, 0, 0, -3.27835e-08, -0.75, 0, 0.75, -3.27835e-08, 0, -0.205787, 0)
+mesh = SubResource("CylinderMesh_exlrd")

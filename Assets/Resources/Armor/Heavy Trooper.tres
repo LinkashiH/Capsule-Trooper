@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PowerArmor" load_steps=2 format=3 uid="uid://b1irhe46oigwa"]
+
+[ext_resource type="Script" path="res://Scripts/Characters/Equipment/PowerArmor.gd" id="1_7qacs"]
+
+[resource]
+script = ExtResource("1_7qacs")
+armor_name = "Heavy Trooper"
+armor = 8
+damage = 7
+fire_rate = 7
+max_ammo = 9
+mobility = 2
+thrust_fuel = 3
+range = 6

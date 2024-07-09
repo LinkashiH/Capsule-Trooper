@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://b4ne616cjkoie"]
+
+[ext_resource type="Script" path="res://Scripts/Characters/Enemies/Test Enemy.gd" id="1_k3pxx"]
+[ext_resource type="Texture2D" uid="uid://b87kx8ydjlsop" path="res://Assets/Purple/texture_01.png" id="2_ro15r"]
+[ext_resource type="PackedScene" uid="uid://cos18ty2cfh4p" path="res://Scenes/UI/enemy_health_bar.tscn" id="3_cxjl2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xwkug"]
+albedo_texture = ExtResource("2_ro15r")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_urug4"]
+material = SubResource("StandardMaterial3D_xwkug")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jqqoc"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_c01be"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Test Enemy" type="CharacterBody3D" node_paths=PackedStringArray("healthbar") groups=["Enemy"]]
+script = ExtResource("1_k3pxx")
+healthbar = NodePath("SubViewport/Enemy Health Bar")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_urug4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_jqqoc")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+disable_3d = true
+transparent_bg = true
+
+[node name="Enemy Health Bar" parent="SubViewport" instance=ExtResource("3_cxjl2")]
+value = 100.0
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.10998, 0)
+billboard = 1
+texture = SubResource("ViewportTexture_c01be")

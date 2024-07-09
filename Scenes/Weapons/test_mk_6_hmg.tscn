@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cos2s05vhp1k4"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_ds1il"]
+size = Vector3(0.5, 0.5, 1.5)
+
+[node name="Test MK 6 HMG" type="MeshInstance3D"]
+transform = Transform3D(-0.75, 6.55671e-08, 0, -6.55671e-08, -0.75, 0, 0, 0, 0.75, 0, -0.0541219, 0)
+mesh = SubResource("PrismMesh_ds1il")

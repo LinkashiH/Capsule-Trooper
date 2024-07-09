@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PowerArmor" load_steps=2 format=3 uid="uid://ofi2xjk0el23"]
+
+[ext_resource type="Script" path="res://Scripts/Characters/Equipment/PowerArmor.gd" id="1_x8w4d"]
+
+[resource]
+script = ExtResource("1_x8w4d")
+armor_name = "Raider Trooper"
+armor = 3
+damage = 9
+fire_rate = 3
+max_ammo = 3
+mobility = 8
+thrust_fuel = 8
+range = 3

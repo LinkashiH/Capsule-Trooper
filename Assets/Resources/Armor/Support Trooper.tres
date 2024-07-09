@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PowerArmor" load_steps=2 format=3 uid="uid://dyvriu76s1emo"]
+
+[ext_resource type="Script" path="res://Scripts/Characters/Equipment/PowerArmor.gd" id="1_bi5ot"]
+
+[resource]
+script = ExtResource("1_bi5ot")
+armor_name = "Support Trooper"
+armor = 6
+damage = 4
+fire_rate = 2
+max_ammo = 4
+mobility = 7
+thrust_fuel = 7
+range = 7

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7g775cr57r8e"]
+
+[ext_resource type="FontFile" uid="uid://b6ogecf3v8ump" path="res://Assets/Brandy.ttf" id="1_5bbih"]
+
+[node name="Name" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("1_5bbih")
+theme_override_font_sizes/font_size = 0
+text = "Text2"

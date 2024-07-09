@@ -1,0 +1,118 @@
+[gd_scene load_steps=18 format=3 uid="uid://bcoxqrty22bpm"]
+
+[ext_resource type="Script" path="res://Scripts/Maps/test_level.gd" id="1_21w73"]
+[ext_resource type="PackedScene" uid="uid://c7wru7issl6xb" path="res://Scenes/UI/pause_menu.tscn" id="1_ian7j"]
+[ext_resource type="Texture2D" uid="uid://b87kx8ydjlsop" path="res://Assets/Purple/texture_01.png" id="1_r3j03"]
+[ext_resource type="PackedScene" uid="uid://b61t4at18tbt" path="res://Scenes/UI/armor_select_screen.tscn" id="2_oqukw"]
+[ext_resource type="PackedScene" uid="uid://cos2s05vhp1k4" path="res://Scenes/Weapons/test_mk_6_hmg.tscn" id="5_hxdbp"]
+[ext_resource type="PackedScene" uid="uid://dfog7yhdtumkp" path="res://Scenes/Weapons/test_m_4_ar.tscn" id="5_qntav"]
+[ext_resource type="PackedScene" uid="uid://bcvgynl7x1cy1" path="res://Scenes/Weapons/test_mk_16_fa_shotgun.tscn" id="6_55r5i"]
+[ext_resource type="PackedScene" uid="uid://b8lbwaidarwxa" path="res://Scenes/Weapons/test_mk_3_support_rifle.tscn" id="7_yrsrr"]
+[ext_resource type="PackedScene" uid="uid://bquisll8ab5dw" path="res://Scenes/Characters/test_soldier_insectoid.tscn" id="9_iu3d6"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j68k2"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_2a5i0"]
+sky_material = SubResource("ProceduralSkyMaterial_j68k2")
+
+[sub_resource type="Environment" id="Environment_5onvl"]
+background_mode = 1
+background_color = Color(0.176471, 0.0862745, 0.133333, 1)
+sky = SubResource("Sky_2a5i0")
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+reflected_light_source = 1
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_wvqlw"]
+vertices = PackedVector3Array(-79.5, 0.491943, -89.5, -79.5, 0.491943, 89.5, 79.5, 0.491943, 89.5, 79.5, 0.491943, -89.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mrvyi"]
+albedo_texture = ExtResource("1_r3j03")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_26c3g"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jv0gj"]
+material = SubResource("StandardMaterial3D_26c3g")
+size = Vector2(100, 200)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ojy8"]
+albedo_color = Color(0.226707, 0.226707, 0.226707, 1)
+
+[node name="TestLevel" type="Node3D"]
+script = ExtResource("1_21w73")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5onvl")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_wvqlw")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.258057, 0)
+use_collision = true
+size = Vector3(160, 0.5, 180)
+material = SubResource("StandardMaterial3D_mrvyi")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 82.9032, 33.2641, 0)
+mesh = SubResource("PlaneMesh_jv0gj")
+material = SubResource("StandardMaterial3D_2ojy8")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="CSGCombiner3D"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, -2.8833, 33.2641, -90.7998)
+mesh = SubResource("PlaneMesh_jv0gj")
+material = SubResource("StandardMaterial3D_2ojy8")
+
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="CSGCombiner3D"]
+transform = Transform3D(4.37114e-08, 1, -8.74228e-08, 1, -4.37114e-08, 0, -3.82137e-15, -8.74228e-08, -1, -76.9011, 33.2641, 2.99071)
+mesh = SubResource("PlaneMesh_jv0gj")
+material = SubResource("StandardMaterial3D_2ojy8")
+
+[node name="CSGMesh3D4" type="CSGMesh3D" parent="CSGCombiner3D"]
+transform = Transform3D(-5.21253e-16, -1.19249e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, 1.19249e-08, -7.02431, 33.2641, 86.6624)
+mesh = SubResource("PlaneMesh_jv0gj")
+material = SubResource("StandardMaterial3D_2ojy8")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Pause Menu" parent="CanvasLayer" instance=ExtResource("1_ian7j")]
+
+[node name="Armor Select Screen" parent="CanvasLayer" node_paths=PackedStringArray("spawn", "H_button", "R_button", "S_button") instance=ExtResource("2_oqukw")]
+spawn = NodePath("../../Player Spawn")
+A_weapon_scene = ExtResource("5_qntav")
+H_weapon_scene = ExtResource("5_hxdbp")
+R_weapon_scene = ExtResource("6_55r5i")
+S_weapon_scene = ExtResource("7_yrsrr")
+H_button = NodePath("MarginContainer/VBoxContainer/Heavy Trooper")
+R_button = NodePath("MarginContainer/VBoxContainer/Raider Trooper")
+S_button = NodePath("MarginContainer/VBoxContainer/Support Trooper")
+
+[node name="Player Spawn" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 138.576, 71.0958)
+
+[node name="Test Soldier Insectoid" parent="." instance=ExtResource("9_iu3d6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7348, 0, -41.3144)
+
+[node name="Test Soldier Insectoid3" parent="." instance=ExtResource("9_iu3d6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -45.0454)
+
+[node name="Test Soldier Insectoid2" parent="." instance=ExtResource("9_iu3d6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.656, 0, -39.4554)
+
+[node name="Test Soldier Insectoid4" parent="." instance=ExtResource("9_iu3d6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.1484, 0, -39.4554)
+
+[node name="Test Soldier Insectoid5" parent="." instance=ExtResource("9_iu3d6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.88331, 0, -29.6699)
+
+[editable path="CanvasLayer/Armor Select Screen"]

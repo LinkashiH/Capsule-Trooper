@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bn3cman8xdum3"]
+
+[node name="ArmorLabel" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Text"

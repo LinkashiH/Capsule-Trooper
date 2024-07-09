@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="PowerArmor" load_steps=2 format=3 uid="uid://bfmlaqsm2irla"]
+
+[ext_resource type="Script" path="res://Scripts/Characters/Equipment/PowerArmor.gd" id="1_rlc0y"]
+
+[resource]
+script = ExtResource("1_rlc0y")
+armor_name = "Assault Trooper"
+armor = 5
+damage = 5
+mobility = 5
+thrust_fuel = 5
+range = 5

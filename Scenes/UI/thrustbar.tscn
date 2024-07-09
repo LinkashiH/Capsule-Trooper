@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://duv38bok11q2n"]
+
+[ext_resource type="PackedScene" uid="uid://dcgt4t6jut2wc" path="res://Scenes/UI/health_bar.tscn" id="1_e6bv2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xx2eh"]
+bg_color = Color(0.152151, 0.238638, 0.624076, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Thrustbar" instance=ExtResource("1_e6bv2")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -225.0
+offset_bottom = 0.0
+grow_vertical = 0
+theme_override_styles/fill = SubResource("StyleBoxFlat_xx2eh")
+fill_mode = 3

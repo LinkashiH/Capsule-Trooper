@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://bquisll8ab5dw"]
+
+[ext_resource type="Script" path="res://Scripts/Characters/Enemies/test_soldier_insectoid.gd" id="1_h5nh1"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_c68nb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6dhg0"]
+albedo_color = Color(0.6, 0.186, 0.186, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_dcjh3"]
+material = SubResource("StandardMaterial3D_6dhg0")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_t1b4g"]
+radius = 124.859
+
+[node name="Test Soldier Insectoid" type="CharacterBody3D" groups=["Enemy"]]
+script = ExtResource("1_h5nh1")
+SPEED = 8.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, -1.31134e-07, -3, 0, 3, -1.31134e-07, 0, 1.5, 0)
+shape = SubResource("CapsuleShape3D_c68nb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, -1.31134e-07, -3, 0, 3, -1.31134e-07, 0, 1.5, 0)
+mesh = SubResource("CapsuleMesh_dcjh3")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+unique_name_in_owner = true
+target_desired_distance = 2.0
+path_height_offset = 0.1
+avoidance_enabled = true
+debug_enabled = true
+
+[node name="Detection Area" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Detection Area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.540251, 0)
+shape = SubResource("SphereShape3D_t1b4g")
+
+[connection signal="velocity_computed" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_velocity_computed"]
+[connection signal="body_entered" from="Detection Area" to="." method="_on_detection_area_body_entered"]

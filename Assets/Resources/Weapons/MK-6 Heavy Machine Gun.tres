@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=2 format=3 uid="uid://dskb1o5qka7je"]
+
+[ext_resource type="Script" path="res://Scripts/Characters/Equipment/Weapon.gd" id="1_uo3lc"]
+
+[resource]
+script = ExtResource("1_uo3lc")
+weapon_name = "MK-6 Heavy Machine Gun"
+shoot_anim = "Test_MG_Shoot"
+aim_shoot_anim = "Test_MG_Aim_Shoot"
+reload_anim = "Test_MG_Reload"
+ammo_out_anim = "Test_MG_Out_Of_Ammo"
+current_ammo = 70
+reserve_ammo = 350
+magazine = 70
+max_ammo = 350
+auto_fire = true
+type = 1

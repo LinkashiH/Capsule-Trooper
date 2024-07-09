@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8lbwaidarwxa"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_8ke0c"]
+radius = 0.25
+
+[node name="Test MK-3 Support Rifle" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_8ke0c")

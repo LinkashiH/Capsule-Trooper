@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://djxvf8vct6sr1"]
+
+[ext_resource type="FontFile" uid="uid://b6ogecf3v8ump" path="res://Assets/Brandy.ttf" id="1_oude8"]
+[ext_resource type="Script" path="res://Scripts/UI/cool_down_label.gd" id="2_y4wqc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ea2ie"]
+font = ExtResource("1_oude8")
+
+[sub_resource type="Animation" id="Animation_ynndr"]
+resource_name = "blink"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:label_settings:font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.560784, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wb1e1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:label_settings:font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h0ba4"]
+_data = {
+"RESET": SubResource("Animation_wb1e1"),
+"blink": SubResource("Animation_ynndr")
+}
+
+[node name="CoolDownLabel" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Cooldown"
+label_settings = SubResource("LabelSettings_ea2ie")
+script = ExtResource("2_y4wqc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_h0ba4")
+}

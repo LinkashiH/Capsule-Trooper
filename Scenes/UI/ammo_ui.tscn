@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://431uc3nyibi"]
+
+[ext_resource type="FontFile" uid="uid://b6ogecf3v8ump" path="res://Assets/Brandy.ttf" id="1_ie7da"]
+[ext_resource type="Script" path="res://Scripts/UI/ammo_ui.gd" id="1_n7xmx"]
+
+[node name="Ammo UI" type="VBoxContainer" node_paths=PackedStringArray("current_ammo_label")]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_n7xmx")
+current_ammo_label = NodePath("HBoxContainer/Current Ammo")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Ammo" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ie7da")
+text = "Ammo:"
+
+[node name="Current Ammo" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ie7da")

@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcgt4t6jut2wc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aid6f"]
+bg_color = Color(0.6, 0.6, 0.862745, 0.215686)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rqns2"]
+bg_color = Color(0.525782, 0.103168, 0.129632, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="HealthBar" type="ProgressBar"]
+offset_right = 25.0
+offset_bottom = 225.0
+theme_override_styles/background = SubResource("StyleBoxFlat_aid6f")
+theme_override_styles/fill = SubResource("StyleBoxFlat_rqns2")
+value = 50.0
+fill_mode = 2
+show_percentage = false

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=2 format=3 uid="uid://c4xjtn8g1tbmj"]
+
+[ext_resource type="Script" path="res://Scripts/Characters/Equipment/Weapon.gd" id="1_f586p"]
+
+[resource]
+script = ExtResource("1_f586p")
+weapon_name = "MK-3 Support Rifle"
+shoot_anim = ""
+aim_shoot_anim = ""
+reload_anim = ""
+ammo_out_anim = ""
+current_ammo = 5
+reserve_ammo = 75
+magazine = 5
+max_ammo = 75
+auto_fire = false
+type = 0

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=2 format=3 uid="uid://c65t7djwaigp3"]
+
+[ext_resource type="Script" path="res://Scripts/Characters/Equipment/Weapon.gd" id="1_iqrwx"]
+
+[resource]
+script = ExtResource("1_iqrwx")
+weapon_name = "MK-4 Bullpup AR"
+shoot_anim = "Test_AR_Shoot"
+aim_shoot_anim = "Test_AR_Aim_Shoot"
+reload_anim = "Test_AR_Reload"
+ammo_out_anim = "Test_AR_Out_Of_Ammo"
+current_ammo = 30
+reserve_ammo = 150
+magazine = 30
+max_ammo = 150
+auto_fire = true
+type = 1

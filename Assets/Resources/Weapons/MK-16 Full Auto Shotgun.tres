@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=2 format=3 uid="uid://sq8o8qnr66tk"]
+
+[ext_resource type="Script" path="res://Scripts/Characters/Equipment/Weapon.gd" id="1_jp1cg"]
+
+[resource]
+script = ExtResource("1_jp1cg")
+weapon_name = "MK-16 Full Auto Shotgun"
+shoot_anim = ""
+aim_shoot_anim = ""
+reload_anim = ""
+ammo_out_anim = ""
+current_ammo = 10
+reserve_ammo = 50
+magazine = 10
+max_ammo = 50
+auto_fire = true
+type = null

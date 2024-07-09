@@ -1,0 +1,134 @@
+[gd_scene load_steps=18 format=3 uid="uid://bwswwrbsk187q"]
+
+[ext_resource type="Script" path="res://Scripts/Maps/test_course.gd" id="1_fce17"]
+[ext_resource type="Texture2D" uid="uid://drus5bysef8xw" path="res://Assets/Dark/texture_03.png" id="1_xmkch"]
+[ext_resource type="Texture2D" uid="uid://myo6ppcb0eow" path="res://Assets/Red/texture_01.png" id="2_gvd2s"]
+[ext_resource type="PackedScene" uid="uid://b4ne616cjkoie" path="res://Scenes/Characters/test_enemy.tscn" id="2_ilsg2"]
+[ext_resource type="Texture2D" uid="uid://bqcuw5wxh2abm" path="res://Assets/Green/texture_01.png" id="3_g1nxs"]
+[ext_resource type="Resource" uid="uid://c65t7djwaigp3" path="res://Assets/Resources/Weapons/MK-4 Bullpup AR.tres" id="4_atgi3"]
+[ext_resource type="Texture2D" uid="uid://2lroojwvu07o" path="res://Assets/Orange/texture_01.png" id="4_ewog0"]
+[ext_resource type="PackedScene" uid="uid://c7wru7issl6xb" path="res://Scenes/UI/pause_menu.tscn" id="5_gdltl"]
+[ext_resource type="PackedScene" uid="uid://c717yafjf6gs4" path="res://Scenes/Characters/Player.tscn" id="6_8pp1g"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hrjex"]
+size = Vector3(40.1463, 22.3154, 10.8167)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_57jtd"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_ds2xc"]
+sky_material = SubResource("ProceduralSkyMaterial_57jtd")
+
+[sub_resource type="Environment" id="Environment_bvrv6"]
+background_mode = 1
+background_color = Color(0.450825, 0.625868, 1, 1)
+sky = SubResource("Sky_ds2xc")
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oamk1"]
+albedo_texture = ExtResource("1_xmkch")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1gpua"]
+albedo_texture = ExtResource("2_gvd2s")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7n406"]
+albedo_texture = ExtResource("3_g1nxs")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rkb8t"]
+albedo_texture = ExtResource("4_ewog0")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[node name="TestCourse" type="Node3D" node_paths=PackedStringArray("spawn_trigger", "enemy_spawns")]
+script = ExtResource("1_fce17")
+spawn_trigger = NodePath("Spawn Trigger")
+enemy_scene = ExtResource("2_ilsg2")
+enemy_spawns = [NodePath("Enemy Spawn"), NodePath("Enemy Spawn2"), NodePath("Enemy Spawn3")]
+
+[node name="Spawn Trigger" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Spawn Trigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0344543, 5.77193, -315.996)
+shape = SubResource("BoxShape3D_hrjex")
+
+[node name="Player" parent="." instance=ExtResource("6_8pp1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+level = 0
+weapon = ExtResource("4_atgi3")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_bvrv6")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+visible = false
+shadow_enabled = true
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -41.407)
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.251099, -127.572)
+size = Vector3(40, 0.5, 363.781)
+material = SubResource("StandardMaterial3D_oamk1")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.415527, 0)
+size = Vector3(40, 3.169, 1)
+material = SubResource("StandardMaterial3D_1gpua")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.157828, -280.665)
+size = Vector3(40, 2.40335, 1)
+material = SubResource("StandardMaterial3D_1gpua")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.07393, -41.419)
+size = Vector3(40, 4.823, 3.176)
+material = SubResource("StandardMaterial3D_7n406")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.32436, -111.714)
+size = Vector3(40, 9.324, 5.741)
+material = SubResource("StandardMaterial3D_7n406")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 42.3748)
+radius = 7.34488
+material = SubResource("StandardMaterial3D_rkb8t")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -183.495)
+operation = 2
+radius = 12.8336
+material = SubResource("StandardMaterial3D_rkb8t")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Pause Menu" parent="CanvasLayer" instance=ExtResource("5_gdltl")]
+
+[node name="Enemy Spawn" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.02318, 0, -333.743)
+
+[node name="Enemy Spawn2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.894, 0, -333.743)
+
+[node name="Enemy Spawn3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.98799, -0.453444, -336.073)
+
+[connection signal="body_entered" from="Spawn Trigger" to="." method="_on_spawn_trigger_body_entered"]
+
+[editable path="Player"]
+[editable path="Player/CameraController/Camera3D/UI/CoolDownLabel"]
+[editable path="Player/CameraController/Camera3D/UI/Ammo UI"]
