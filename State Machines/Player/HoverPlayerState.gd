@@ -15,6 +15,7 @@ func enter() -> void:
 
 
 func update(delta):
+	
 	player.update_gravity(delta)
 	player.update_input(speed,acceleration,deceleration,delta)
 	player.update_velocity()

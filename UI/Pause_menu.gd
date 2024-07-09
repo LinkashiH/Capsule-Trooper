@@ -38,3 +38,8 @@ func _on_quit_pressed():
 
 func _process(delta):
 	ESCmenue()
+
+
+func _on_main_menu_pressed():
+	visible = false
+	get_tree().change_scene_to_file("res://Scenes/UI/start_menu.tscn")
